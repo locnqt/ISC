@@ -1,0 +1,9 @@
+﻿1,Nguyễn văn A,vanphong,3000,7
+2,Nguyễn văn Tèo,vanphong,3500,3
+3,Nguyễn văn tí,vanphong,3800,13
+4,Nguyễn căn Bé,banhang,4800,8
+5,Nguyễn căn Ti,banhang,4300,5
+6,Nguyễn căn Bình,banhang,4000,3
+7,Nguyễn căn Chung,sanxuat,5000,25
+8,Nguyễn căn Chinh,sanxuat,5500,55
+9,Nguyễn căn Chơn,sanxuat,4500,5

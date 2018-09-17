@@ -1,0 +1,35 @@
+﻿----------------------------------------------------------------Quản lý nhân sự (Saigon HR management
+
+-Quản lý thông tin nhân viên: (employee information management)
+quan ly	1.certificate(Chứng chỉ VN-EN): có thể nhiều toiec/cisco/....		nhấn edit gia hạn ngày
+	2.submited document: id, name
+quan ly	3.Position(chức vụ VN-EN): 1 nhân viên có 1/n chức vụ
+quan ly	4.Degree(Bằng cấp VN-EN): chỉ lưu bằng cao nhất
+	5.Specialization(chuyên ngành VN-EN): có none mba/english
+	6.Ethic(Dân tộc)
+	7.ID issue place(nơi cấp thẻ cmnd):
+quan ly	8.Country
+quan ly	9.Province(tỉnh/tp)
+-*employee information
+id:chuỗi_nhập_duy nhất cho nhân viên nhập
+lastname
+firstname
+gender(male-female)
+birthday
+ID number(số CMND)
+Email
+Address
+Image
+
+*-1 : 1-n
+*-2 : 1-n
+*-3 : 1-n
+*-4 : 1-1
+*-5 : 1-n tách
+*-6 : 1-1  gộp
+*-7 : 1-1
+*-8 : n-1
+*-9 : n-1
+
+text canh trái
+number canh phải

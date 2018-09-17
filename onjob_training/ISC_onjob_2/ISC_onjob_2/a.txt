@@ -1,0 +1,2 @@
+﻿0000-A, Khang Nguyen, 31/12/1990, Abcdef12, true, worker, 200, 31/12/2010
+0001-B, Dung Bui, 31/12/1980, Abcdef13, false, leader, 200, 50

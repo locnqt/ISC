@@ -1,0 +1,12 @@
+0000-A, Khang Nguyen A, 31/12/1990, Abcdef12, true, worker, 200, 31/12/2010
+000a-A, Khang Nguyen B, 31/12/1990, Abcdef12, true, worker, 1002, 31/12/2012
+0000-E, Khang Nguyen C, 31/12/1990, Abcdef12, true, worker, 500, 31/12/2018
+0000-D, Khang Nguyen D, 31/12/1990, Abcdef12, true, worker, 2100, 31/12/2018
+0000-D, Khang Nguyen D, 31/12/1940, Abcdef12, true, worker, 2100, 31/12/2018
+0001-B, Dung Bu A, 31/12/1980, Abcdef13, false, leader, 950, 53
+0001-B, Dung Bui B, 31/12/1980, bcdefabc, false, leader, 100, 0
+0001aB, Dung Bui C, 31/12/1980, Abcdef13, false, leader, 1200, 50
+0001-B, Dung Bui D, 31/12/1980, 12345A13, false, leader, 800, 50
+0001-B, Dung Bui E, 31/12/1980, Abcdefdc, false, leader, 2000, 50
+0001-B, Dung Bui F, 31/12/1980, Abcdef13, false, leader, 1000, 50
+0001-B, Dung Bui S, 31/12/1980, Abcdef13, false, leader, 500, 50
