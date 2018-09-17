@@ -1,0 +1,14 @@
+D:\locnqt\backend\Student\Student\obj\Debug\netcoreapp2.1\Student.csprojAssemblyReference.cache
+D:\locnqt\backend\Student\Student\obj\Debug\netcoreapp2.1\Student.csproj.CoreCompileInputs.cache
+D:\locnqt\backend\Student\Student\obj\Debug\netcoreapp2.1\Student.RazorAssemblyInfo.cache
+D:\locnqt\backend\Student\Student\obj\Debug\netcoreapp2.1\Student.RazorAssemblyInfo.cs
+D:\locnqt\backend\Student\Student\obj\Debug\netcoreapp2.1\Student.AssemblyInfoInputs.cache
+D:\locnqt\backend\Student\Student\obj\Debug\netcoreapp2.1\Student.AssemblyInfo.cs
+D:\locnqt\backend\Student\Student\bin\Debug\netcoreapp2.1\Student.deps.json
+D:\locnqt\backend\Student\Student\bin\Debug\netcoreapp2.1\Student.runtimeconfig.json
+D:\locnqt\backend\Student\Student\bin\Debug\netcoreapp2.1\Student.runtimeconfig.dev.json
+D:\locnqt\backend\Student\Student\bin\Debug\netcoreapp2.1\Student.dll
+D:\locnqt\backend\Student\Student\bin\Debug\netcoreapp2.1\Student.pdb
+D:\locnqt\backend\Student\Student\obj\Debug\netcoreapp2.1\Student.RazorTargetAssemblyInfo.cache
+D:\locnqt\backend\Student\Student\obj\Debug\netcoreapp2.1\Student.dll
+D:\locnqt\backend\Student\Student\obj\Debug\netcoreapp2.1\Student.pdb

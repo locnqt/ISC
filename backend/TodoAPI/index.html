@@ -1,0 +1,18 @@
+<html>
+<head></head>
+<body>
+	<script src="js/jquery-3.3.1.js"></script>
+	<script>
+	//$(function(){ alert("The paragraph was clicked.");});
+	$(function(){
+		$.ajax({
+			type: "GET",
+			url: "https://localhost:44381/api/todo",
+			success: function(data){
+				console.log(data);
+			}
+		});
+	});
+	</script>
+</body>
+</html>

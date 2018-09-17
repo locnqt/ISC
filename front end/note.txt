@@ -1,0 +1,29 @@
+﻿angularJS 4
+-cần cài
+ nodeJS
+ visual code code/ sublime text
+-công việc:
+//
+-
+app.component.html
+app.component.css
+app.component.ts (typescript)
+
+cấu trúc
+chia thành các component(html, css, ts)
+
+cmd tại thư mục
+ng new my-app
+ng new ISC
+// https://angular.io/guide/quickstart
+
+tao component:
+tao file mới trong app --> terminal gõ
+ng g c component
+
+ngIF, ngFor, ngStyle, ngModel, ngClass
+
+Http module
+http, rxjs,
+
+delegate, lambdecrepssion

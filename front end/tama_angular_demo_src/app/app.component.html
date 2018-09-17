@@ -1,0 +1,137 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="text-center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+</div>
+<div class="container-fluid">
+  <div class="row my-3">
+    <div class="col-3">
+        <div class="form-group">
+            <label for="">Enter your name:</label>
+            <input type="text" class="form-control" #tb placeholder="Enter your lovely name">
+          </div>
+          <button class="btn btn-danger" (click)="sayHello(tb.value)">Click here noob!</button>
+    </div>
+    <div class="col-3">
+        <label>Current value of logic: {{ilogic}}</label>
+        <br>
+        <button type="button" class="btn btn-info" (click)="change()">Change</button>
+    </div>
+    <div class="col-3">
+      <p class="textPink" [class]="pcolor">This is a sample text to change color!</p>
+      <button type="button" class="btn btn-info" (click)="changeColor()">Change paragraph color</button>
+    </div>
+    <div class="col-3">
+        <input type="text" class="form-control" #tb2 (keyup)="copyAction(tb2, tb3)" placeholder="My action">
+        <input type="text" class="form-control" #tb3 placeholder="Copy action">
+    </div>
+  </div>
+  <div class="row my-3">
+    <div class="col-12">     
+        <!-- Button trigger modal -->
+    <div class="text-right">
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addNew">
+        Add element to table
+      </button>
+    </div>
+      <div class="table-responsive">
+        <table class="table table-hover table-bordered">
+          <thead>
+            <tr class="table-primary">
+              <td>Name</td>
+              <td>Value</td>
+              <td>Action</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let b of banana; let i = index;">
+              <td>{{b['name']}}</td>
+              <td>{{b['value']}}</td>
+              <td>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modelId" (click)="addEditTable(i, b['name'], b['value'])">Edit</button>
+                <button type="button" class="btn btn-danger" (click)="removeTableValue(i)">Remove</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="row my-2">
+    <div class="col-6">
+      <h4>Testing *ngif statement here!</h4>
+      <button type="button" class="btn btn-secondary" (click)="changeBehavior()">Change behavior</button>
+      <div *ngIf="show === true; then thencase else elsecase"></div>
+      <ng-template #thencase>
+          <h3 class="textGreen">Current show value is true; these text will be green</h3>
+      </ng-template>
+      <ng-template #elsecase>
+          <h3 class="textRed">Current show value is false; these text will be red</h3>
+      </ng-template>
+    </div>
+    <div class="col-6">
+        
+        <!-- Modal -->
+        <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                  <h4 class="modal-title" id="modelTitleId">Editing name and value</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                
+              </div>
+              <div class="modal-body">
+                <input type="hidden" #sid value="{{selectedId}}">
+                <div class="form-group">
+                  <label for="">name</label>
+                  <input type="text" class="form-control" #oname aria-describedby="helpId" placeholder="Enter new string" value="{{oName}}">
+                </div>
+                <div class="form-group">
+                    <label for="">value</label>
+                    <input type="number" class="form-control" #ovalue aria-describedby="helpId" placeholder="Enter new value" value="{{oValue}}">
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" (click)="changeTableValue(oname.value, ovalue.value);" data-dismiss="modal">Save</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+    </div>
+  </div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="addNew" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">  
+          <h4 class="modal-title">Add new element to table</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="">Table name input</label>
+            <input type="text" class="form-control" name="" id="" #tname placeholder="Enter a string">
+          </div>
+          <div class="form-group">
+            <label for="">Table value input</label>
+            <input type="number" class="form-control" name="" id="" #tvalue placeholder="Enter some value">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-success" (click)="addNewTableValue(tname.value, tvalue.value)" data-dismiss="modal">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

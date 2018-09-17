@@ -1,0 +1,17 @@
+﻿<!DOCTYPE NETSCAPE-Bookmark-file-1>
+<!-- This is an automatically generated file.
+     It will be read and overwritten.
+     DO NOT EDIT! -->
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+<TITLE>Bookmarks</TITLE>
+<H1>Bookmarks</H1>
+<DL><p>
+    <DT><H3 ADD_DATE="1519652420" LAST_MODIFIED="1531140467" PERSONAL_TOOLBAR_FOLDER="true">Bookmarks bar</H3>
+    <DL><p>
+        <DT><H3 ADD_DATE="1531140452" LAST_MODIFIED="1531654811">ISC</H3>
+        <DL><p>
+            <DT><A HREF="https://slideplayer.com/slide/9549684/" ADD_DATE="1531654371" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAByUlEQVQ4jZ2SP2gTYRiHn+/uahOkFowZcmoLViWp/yBoJVLoFhzqKkqqIEjHQBsoVtd6WOuXoVuixb21kyIVRFxsZx08KBbulHodNJ28I8k156AJFXNK+tu+P+/D837fK67nrk77/o7BHqJp6l3N93eMx6UFbNvqqNhxHBaePjHE2I1rpWqtPr4Xg+59XWUB8ODh/eDm2C1c10VVFARQ8zwC36e7pweEQFFVFEVBCIGu68zOGdyZuie0Ji2RSGDbNl8WFzm0tsaJvj7wfSzLwhka4mguRwP4/HUTXddbFspupW+myQXHIdnfT8N18ba3Oah1cfLdKu+NX+88MHD8jza03YuKadJQVbytLar4vL6cZWkzSeBXSb0tcQ7Y2PgUbnAsm+Xl8jKO51G5eIQDGYvDWoXeD29IjZwCIJlMhRvsj8VIzM/zbGaGytIrfqzW+W6dJ51OM3J7mprrsr5uEo/H2wMikQiDw8MMrqy0+zWi0Si9sVi4gWl+bFvYioAzp8+GAzKZS/8GtIn2G1yenTM6mkYB5f9eyk/kx6V8VM9P5DsfdSnlaLEoA4BiUQZSytEQk78LheA5wORkoXXehAUBVwqFwovm/k89v50B2QDYkQAAAABJRU5ErkJggg==">Slide 1 Chapter 05 – Part 2 Data Modeling with the Entity-Relationship Model. - ppt download</A>
+            <DT><A HREF="https://slideplayer.com/slide/5123363/" ADD_DATE="1531654376" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAByUlEQVQ4jZ2SP2gTYRiHn+/uahOkFowZcmoLViWp/yBoJVLoFhzqKkqqIEjHQBsoVtd6WOuXoVuixb21kyIVRFxsZx08KBbulHodNJ28I8k156AJFXNK+tu+P+/D837fK67nrk77/o7BHqJp6l3N93eMx6UFbNvqqNhxHBaePjHE2I1rpWqtPr4Xg+59XWUB8ODh/eDm2C1c10VVFARQ8zwC36e7pweEQFFVFEVBCIGu68zOGdyZuie0Ji2RSGDbNl8WFzm0tsaJvj7wfSzLwhka4mguRwP4/HUTXddbFspupW+myQXHIdnfT8N18ba3Oah1cfLdKu+NX+88MHD8jza03YuKadJQVbytLar4vL6cZWkzSeBXSb0tcQ7Y2PgUbnAsm+Xl8jKO51G5eIQDGYvDWoXeD29IjZwCIJlMhRvsj8VIzM/zbGaGytIrfqzW+W6dJ51OM3J7mprrsr5uEo/H2wMikQiDw8MMrqy0+zWi0Si9sVi4gWl+bFvYioAzp8+GAzKZS/8GtIn2G1yenTM6mkYB5f9eyk/kx6V8VM9P5DsfdSnlaLEoA4BiUQZSytEQk78LheA5wORkoXXehAUBVwqFwovm/k89v50B2QDYkQAAAABJRU5ErkJggg==">Chapter Five Data Modeling with the Entity-Relationship Model. - ppt download</A>
+            
+    </DL><p>
+    
