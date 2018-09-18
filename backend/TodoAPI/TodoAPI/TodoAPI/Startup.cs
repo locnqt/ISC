@@ -65,7 +65,7 @@ namespace TodoAPI
             {
                 options.AddPolicy("AllowAllHeader", 
                     builder => {
-                        builder.WithOrigins("*").AllowAnyOrigin();
+                        builder.WithOrigins("*").AllowAnyOrigin().AllowAnyMethod();
                     });
             });
         }
