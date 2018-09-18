@@ -11,16 +11,20 @@ namespace Simple_sell.Models
     public class Sale_Order
     {
         [Key]
-        public long SAL_NUMBER { get; set; }
-        [Column("EMP_ID")]
-        [ForeignKey("EMP_ID")]
-        public int EmpId { get; set; }
-        [Column("CUS_ID")]
-        [ForeignKey("CUS_ID")]
-        public int CusId { get; set; }
+        [Column("SAL_NUMBER")]
+        public int SalNumber { get; set; }
         [Column("SAL_DATE")]
-        public DateTime date { get; set; }
+        public DateTime Date { get; set; }
         [Column("SAL_TAX")]
-        public float tax { get; set; }
+        public float Tax { get; set; }
+
+        [Column("CUS_ID")]
+        public int CusId { get; set; }
+        [ForeignKey("CusId")]
+        public virtual Customer Customer { get; set; }
+        [Column("EMP_ID")]
+        public int EmpId { get; set; }
+        [ForeignKey("EmpId")]
+        public virtual Employee Employee { get; set; }
     }
 }

@@ -11506,11 +11506,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\locnqt\\backend\\Simple_sell\\Simple_sell\\Simple_sell.csproj",
+      "projectUniqueName": "D:\\ISC\\backend\\Simple_sell\\Simple_sell\\Simple_sell.csproj",
       "projectName": "Simple_sell",
-      "projectPath": "D:\\locnqt\\backend\\Simple_sell\\Simple_sell\\Simple_sell.csproj",
+      "projectPath": "D:\\ISC\\backend\\Simple_sell\\Simple_sell\\Simple_sell.csproj",
       "packagesPath": "C:\\Users\\Me\\.nuget\\packages\\",
-      "outputPath": "D:\\locnqt\\backend\\Simple_sell\\Simple_sell\\obj\\",
+      "outputPath": "D:\\ISC\\backend\\Simple_sell\\Simple_sell\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

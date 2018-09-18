@@ -11,8 +11,9 @@ namespace Simple_sell.Models
     public class Department
     {
         [Key]
-        public int DEP_ID { get; set; }
+        [Column("DEP_ID")]
+        public int DepId { get; set; }
         [Column("DEP_NAME")]
         public String Name { get; set; }
-}
+    }
 }

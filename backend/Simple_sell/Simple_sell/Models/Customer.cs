@@ -11,7 +11,8 @@ namespace Simple_sell.Models
     public class Customer
     {
         [Key]
-        public int CUS_ID { get; set; }
+        [Column("CUS_ID")]
+        public int CusId { get; set; }
         [Column("CUS_NAME")]
         public String Name { get; set; }
         [Column("CUS_ADDRESS")]

@@ -11,10 +11,11 @@ namespace Simple_sell.Models
     public class Item
     {
         [Key]
-        public int ITE_ID { get; set; }
+        [Column("ITE_ID")]
+        public int ItemId { get; set; }
         [Column("ITE_DESCRIPTION")]
-        public String descript { get; set; }
+        public String Descript { get; set; }
         [Column("ITE_PRICE")]
-        public decimal price { get; set; }
+        public decimal Price { get; set; }
     }
 }

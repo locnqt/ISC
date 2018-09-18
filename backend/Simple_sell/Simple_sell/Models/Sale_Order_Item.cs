@@ -11,16 +11,20 @@ namespace Simple_sell.Models
     public class Sale_Order_Item
     {
         [Key]
-        public int SALI_ID { get; set; }
-        [Column("SALI_NUMBER")]
-        [ForeignKey("SAL_NUMBER")]
-        public int SalNum { get; set; }
-        [Column("ITE_ID")]
-        [ForeignKey("ITE_ID")]
-        public int IteNum { get; set; }
+        [Column("SALI_ID")]
+        public int SaliId { get; set; }
         [Column("SALI_QUANTITY")]
         public int Quantity { get; set; }
         [Column("SALI_PRICE")]
-        public decimal price { get; set; }
+        public decimal Price { get; set; }
+
+        [Column("SALI_NUMBER")]
+        public int SalNum { get; set; }
+        [ForeignKey("SalNum")]
+        public virtual Sale_Order Sale_Order { get; set; }
+        [Column("ITE_ID")]
+        public int IteNum { get; set; }
+        [ForeignKey("IteNum")]
+        public virtual Item Item { get; set; }
     }
 }

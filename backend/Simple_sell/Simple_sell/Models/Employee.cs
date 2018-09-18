@@ -11,13 +11,8 @@ namespace Simple_sell.Models
     public class Employee
     {
         [Key]
-        public int EMP_ID { get; set; }
-        [Column("EMP_EMP_ID")]
-        [ForeignKey("EMP_EMP_ID")]
-        public int E2ID { get; set; }
-        [Column("DEP_ID")]
-        [ForeignKey("DEP_ID")]
-        public int DepId { get; set; }
+        [Column("EMP_ID")]
+        public int EmpId { get; set; }
         [Column("EMP_CODE")]
         public String Code { get; set; }
         [Column("EMP_NAME")]
@@ -28,5 +23,14 @@ namespace Simple_sell.Models
         public String Email { get; set; }
         [Column("EMP_POSITION")]
         public String Position { get; set; }
+
+        [Column("EMP_EMP_ID")]
+        public int ParentId { get; set; }
+        [ForeignKey("ParentId")]
+        public virtual Employee Parent { get; set; }
+        [Column("DEP_ID")]
+        public int DepId { get; set; }
+        [ForeignKey("DepId")]
+        public virtual Department Department { get; set; }
     }
 }

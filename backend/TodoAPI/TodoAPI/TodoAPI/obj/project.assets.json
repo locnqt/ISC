@@ -11506,11 +11506,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\locnqt\\backend\\TodoAPI\\TodoAPI\\TodoAPI\\TodoAPI.csproj",
+      "projectUniqueName": "D:\\ISC\\backend\\TodoAPI\\TodoAPI\\TodoAPI\\TodoAPI.csproj",
       "projectName": "TodoAPI",
-      "projectPath": "D:\\locnqt\\backend\\TodoAPI\\TodoAPI\\TodoAPI\\TodoAPI.csproj",
+      "projectPath": "D:\\ISC\\backend\\TodoAPI\\TodoAPI\\TodoAPI\\TodoAPI.csproj",
       "packagesPath": "C:\\Users\\Me\\.nuget\\packages\\",
-      "outputPath": "D:\\locnqt\\backend\\TodoAPI\\TodoAPI\\TodoAPI\\obj\\",
+      "outputPath": "D:\\ISC\\backend\\TodoAPI\\TodoAPI\\TodoAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
