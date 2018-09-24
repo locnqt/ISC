@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TodoAPI.Models;
+using TodoAPI.Models.Responses;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -19,17 +20,28 @@ namespace TodoAPI.Controllers
         public TodoController(TodoContext context)
         {
             _context = context;
-            if (_context.TodoItems.Count() ==0)
-            {
-                _context.TodoItems.Add(new TodoItem { Name = "Item1", IsComplete =true, type= new TodoType { Name="ahaha" } });
-                _context.SaveChanges();
-            }
+            //if (_context.TodoItems.Count() ==0)
+            //{
+            //    _context.TodoItems.Add(new TodoItem { Name = "Item1", IsComplete =true, type= new TodoType { Name="ahaha" } });
+            //    _context.SaveChanges();
+            //}
         }
         // GET: api/Todo
         [HttpGet]
         public ActionResult<List<TodoItem>> Get()
         {
             return _context.TodoItems.Include(x => x.type).ToList();
+                //.Select(x => new TodoResponse
+                //{
+                //    UserId = x.UserId,
+                //    UserName = x.UserName,
+                //    Pass = x.Pass,
+                //    Name = x.Name,
+                //    Email = x.Email,
+                //    Islocked = x.Islocked,
+                //    IsDeleted = x.IsDeleted
+                //})
+                //.AsNoTracking().ToList();
         }
         // GET: api/Todo/5
         [HttpGet("{id}", Name = "Get")]

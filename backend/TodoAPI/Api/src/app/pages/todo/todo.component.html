@@ -1,0 +1,11 @@
+<h1>Todo List</h1>
+<div>
+  name: <input type="text" >
+  isComplete <input type="checkbox" name="" id="">
+  
+</div>
+<ul>
+  <li *ngFor="let todo of todoList">
+    {{todo.name}}- is Complete {{todo.isComplete}}
+  </li>
+</ul>

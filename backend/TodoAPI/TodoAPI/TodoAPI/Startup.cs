@@ -63,7 +63,7 @@ namespace TodoAPI
             services.AddMvc();
             services.AddCors(options =>
             {
-                options.AddPolicy("AllowAllHeader", 
+                options.AddPolicy("AllowAll", 
                     builder => {
                         builder.WithOrigins("*").AllowAnyOrigin().AllowAnyMethod();
                     });
@@ -77,7 +77,7 @@ namespace TodoAPI
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseCors("AllowAllHeader");
+            app.UseCors("AllowAll");
             app.UseMvc();
         }
     }
