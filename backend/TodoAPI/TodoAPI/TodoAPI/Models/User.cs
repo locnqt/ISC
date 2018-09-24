@@ -27,8 +27,8 @@ namespace TodoAPI.Models
         public bool IsDeleted { get; set; }
 
         [Column("ROL_ID")]
-        public int RolId { get; set; }
+        public long RolId { get; set; }
         [ForeignKey("RolId")]
-        public virtual Customer Role { get; set; }
+        public virtual Role Role { get; set; }
     }
 }
