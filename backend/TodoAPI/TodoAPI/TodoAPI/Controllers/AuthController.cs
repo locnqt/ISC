@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using TodoAPI.Models;
 using TodoAPI.Models.Requests;
+using TodoAPI.Models.Responses;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -24,6 +25,21 @@ namespace TodoAPI.Controllers
         public AuthController(TodoContext context)
         {
             _context = context;
+            if (_context.Users.ToList().Count == 0)
+            {
+                User aUser = new User
+                {
+                    UserName = "admin",
+                    PassWord = getHash("ahahah"),
+                    Name = "vanteo",
+                    Email = "abc@gmail.com",
+                    Islocked = false,
+                    IsDeleted = false,
+                    RolId = 3
+                };
+                _context.Users.Add(aUser);
+                _context.SaveChanges();
+            }
         }
         [AllowAnonymous]
         [HttpPost("token")]
@@ -32,24 +48,11 @@ namespace TodoAPI.Controllers
         {
             if(!String.IsNullOrEmpty(request.UserName) && !String.IsNullOrEmpty(request.PassWord))
             {
-                if(_context.Users.ToList().Count == 0)
+                var user = _context.Users.Where(x => x.UserName == request.UserName && x.PassWord == getHash(request.PassWord)).SingleOrDefault();
+
+                if(user !=null)
                 {
-                    User aUser = new User
-                    {
-                        UserName = "admin",
-                        PassWord = getHash("ahahah"),
-                        Name = "vanteo",
-                        Email = "abc@gmail.com",
-                        Islocked = false,
-                        IsDeleted = false,
-                        RolId = 3
-                    };
-                    _context.Users.Add(aUser);
-                    _context.SaveChanges();
-                }
-                if(request.UserName == "admin" && request.PassWord == "admin")
-                {
-                    var claimData = new[] { new Claim(ClaimTypes.Name, "username") };
+                    var claimData = new[] { new Claim(ClaimTypes.Name, request.UserName) };
                     var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("1234567890123456")); //at least 16 char
                     var signingCredentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256Signature);
                     var token = new JwtSecurityToken(
@@ -60,7 +63,14 @@ namespace TodoAPI.Controllers
                         signingCredentials: signingCredentials
                     );
                     var tonkenString = new JwtSecurityTokenHandler().WriteToken(token);
-                    return Ok(tonkenString);
+                    var userResult = new LoginResponse
+                    {
+                        Id = user.UserId,
+                        UserName = user.UserName,
+                        FullName = user.Name,
+                        Token = "Bearer " + tonkenString
+                    };
+                    return Ok(userResult);
                 }
             }
             return Unauthorized();
