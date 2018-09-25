@@ -16,7 +16,7 @@ namespace TodoAPI.Models
         [Column("UserName")]
         public string UserName { get; set; }
         [Column("PassWord")]
-        public string Pass { get; set; }
+        public string PassWord { get; set; }
         [Column("FullName")]
         public string Name { get; set; }
         [Column("Email")]
