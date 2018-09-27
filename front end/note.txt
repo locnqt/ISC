@@ -2,35 +2,34 @@
 -cần cài
  nodeJS
  visual code code/ sublime text
--công việc:
-//
--
-app.component.html
-app.component.css
-app.component.ts (typescript)
-
-cấu trúc
-chia thành các component(html, css, ts)
 
 cmd tại thư mục
 ng new my-app
-ng new ISC
+ex: ng new ISC
 // https://angular.io/guide/quickstart
 
-tao component:
-tao file mới trong app --> terminal gõ
-ng g c component
+tao component:terminal(phím tắt: crtl+`) gõ: ng g c component
+tao service: ng g s myservice
 
+-tìm hiểu:
 ngIF, ngFor, ngStyle, ngModel, ngClass
 
 Http module
 http, rxjs,
 
 delegate, lambdecrepssion
+---------------------------------
+update anuglar cli laste:
+npm uninstall -g @angular/cli
+npm cache verify
+npm install -g @angular/cli@latest
 
-m install --save rxjs-compat
+cai rxjs
+npm install --save rxjs-compat
 
 npm install popper.js@1.14.3
+
+cai angular-datatables:
 npm install jquery --save
 npm install datatables.net --save
 npm install datatables.net-dt --save
