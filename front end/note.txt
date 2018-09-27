@@ -37,3 +37,9 @@ npm install angular-datatables@6.0.0 --save
 npm install @types/jquery --save-dev
 npm install @types/datatables.net --save-dev
 
+button extension:
+npm install jszip --save
+npm install datatables.net-buttons --save
+npm install datatables.net-buttons-dt --save
+npm install @types/datatables.net-buttons --save-dev
+
