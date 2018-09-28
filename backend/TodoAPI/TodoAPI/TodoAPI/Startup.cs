@@ -14,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 using TodoAPI.Models;
 
 namespace TodoAPI
@@ -55,7 +56,11 @@ namespace TodoAPI
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("1234567890123456"))
             };
             });
-            services.AddMvc();
+            //services.AddMvc();
+            services.AddMvc().AddJsonOptions(options => 
+            {
+                options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
+            });
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
