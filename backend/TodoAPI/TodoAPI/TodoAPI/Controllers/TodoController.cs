@@ -20,40 +20,27 @@ namespace TodoAPI.Controllers
         public TodoController(TodoContext context)
         {
             _context = context;
-            //if (_context.TodoItems.Count() ==0)
-            //{
-            //    _context.TodoItems.Add(new TodoItem { Name = "Item1", IsComplete =true, type= new TodoType { Name="ahaha" } });
-            //    _context.SaveChanges();
-            //}
         }
-        // GET: api/<controller> {getall}
-        //[HttpGet]
-        //public ActionResult<List<TodoItem>> Get()
-        //{
-        //    return _context.TodoItems.Include(x => x.type).ToList();
-        //    //.Select(x => new TodoResponse
-        //    //{
-        //    //    UserId = x.UserId,
-        //    //    UserName = x.UserName,
-        //    //    Pass = x.Pass,
-        //    //    Name = x.Name,
-        //    //    Email = x.Email,
-        //    //    Islocked = x.Islocked,
-        //    //    IsDeleted = x.IsDeleted
-        //    //})
-        //    //.AsNoTracking().ToList();
-        //}
+        //GET: api/<controller> {getall}
         [HttpGet]
-        public ActionResult<List<User>> Get()
+        public ActionResult<List<TodoResponse>> Get()
         {
-            return _context.Users.Include(x => x.Role).ToList();
+            return _context.TodoItems.Include(x => x.type)
+            .Select(x => new TodoResponse
+            {
+                Id = x.Id,
+                Name = x.Name,
+                IsComplete = x.IsComplete,
+                TYPE_ID = x.TYPE_ID,
+                TypeName = x.type.Name,
+            })
+            .AsNoTracking().ToList();
         }
 
-        // GET api/<controller>/5
         [HttpGet("{id}")]
-        public ActionResult<User> Get(int id)
+        public ActionResult<TodoItem> Get(int id)
         {
-            var item = _context.Users.Find(id);
+            var item = _context.TodoItems.Find(id);
             if (item == null)
             {
                 return NoContent();
@@ -61,42 +48,46 @@ namespace TodoAPI.Controllers
             return item;
         }
 
-        // POST api/<controller>
+        // POST api/Todo
         [HttpPost]
-        public IActionResult Create(User user)
+        public IActionResult Create(TodoItem item)
         {
-            _context.Users.Add(user);
+            _context.TodoItems.Add(item);
             _context.SaveChanges();
-            return CreatedAtRoute("Get", new { id = user.UserId }, user);
+
+            return CreatedAtRoute("Get", new { id = item.Id }, item);
         }
 
-        // PUT api/<controller>/5
+        // PUT api/Todo/5
         [HttpPut("{id}")]
-        public IActionResult Update(long id, User us)
+        public IActionResult Update(int id, TodoItem item)
         {
-            var user = _context.Users.Find(id);
-            if (user == null)
+            var todo = _context.TodoItems.Find(id);
+            if (todo == null)
             {
-                return NoContent();
+                return NotFound();
             }
-            user = us;
-            _context.Users.Update(user);
+            todo.IsComplete = item.IsComplete;
+            todo.Name = item.Name;
+
+            _context.TodoItems.Update(todo);
             _context.SaveChanges();
             return NoContent();
         }
 
-        // DELETE api/<controller>/5
+        // DELETE api/Todo/5
         [HttpDelete("{id}")]
         public IActionResult Delete(long id)
         {
-            var user = _context.Users.Find(id);
-            if (user == null)
+            var todo = _context.TodoItems.Find(id);
+            if (todo == null)
             {
-                return NotFound();
+                return NoContent();
             }
-            _context.Users.Remove(user);
+            _context.TodoItems.Remove(todo);
             _context.SaveChanges();
             return NoContent();
         }
     }
 }
+

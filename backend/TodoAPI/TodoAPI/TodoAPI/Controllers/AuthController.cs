@@ -30,7 +30,7 @@ namespace TodoAPI.Controllers
                 User aUser = new User
                 {
                     UserName = "admin",
-                    PassWord = getHash("ahahah"),
+                    PassWord = getHash("ahahah", "admin"),
                     Name = "vanteo",
                     Email = "abc@gmail.com",
                     Islocked = false,
@@ -44,11 +44,11 @@ namespace TodoAPI.Controllers
         [AllowAnonymous]
         [HttpPost("token")]
         // GET: /<controller>/
-        public ActionResult Token(LoginRequest request)
+        public ActionResult Token([FromBody]LoginRequest request)
         {
             if(!String.IsNullOrEmpty(request.UserName) && !String.IsNullOrEmpty(request.PassWord))
             {
-                var user = _context.Users.Where(x => x.UserName == request.UserName && x.PassWord == getHash(request.PassWord)).SingleOrDefault();
+                var user = _context.Users.Where(x => x.UserName == request.UserName && x.PassWord == getHash(request.PassWord, request.UserName)).SingleOrDefault();
 
                 if(user !=null)
                 {
@@ -75,9 +75,10 @@ namespace TodoAPI.Controllers
             }
             return Unauthorized();
         }
-        private string getHash(string text)
+        private string getHash(string text, string username)
         {
-            byte[] salt = new byte[128 / 8];
+            //byte[] salt = new byte[128 / 8];
+            byte[] salt = Encoding.UTF8.GetBytes(username);
             string hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
                                                     password: text,
                                                     salt: salt,
