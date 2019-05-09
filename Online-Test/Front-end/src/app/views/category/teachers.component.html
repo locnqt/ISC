@@ -1,0 +1,387 @@
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-header">
+            <i class="fa fa-align-justify"></i> List Teachers
+            <button class="btn btn-success float-right" data-toggle="modal" data-target="#modalAdd">Add New Teacher</button>
+        </div>
+        <div class="card-body">
+            <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" dtColumnDefs="dtColumnDefs" class="table table-striped row-border hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Account</th>
+                        <th>Full Name</th>
+                        <th>DOB</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Gender</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let giaovien of teacherlist; let i = index">
+                        <td>{{i + 1}}</td>
+                        <td>{{giaovien.ma}}</td>
+                        <td>{{giaovien.ho+" "+giaovien.ten}}</td>
+                        <td>{{giaovien.ngaySinh|date:'dd/MM/yyyy'}}</td>
+                        <td>{{giaovien.dienThoai}}</td>
+                        <td>{{giaovien.email}}</td>
+                        <td>{{giaovien.diaChi}}</td>
+                        <td><p *ngIf="giaovien.gioiTinh=='0'">Male</p> <p *ngIf="giaovien.gioiTinh=='1'">FeMale</p></td>
+                        <td>
+                            <label class="switch switch-label switch-pill switch-success">
+                                <input type="checkbox" class="switch-input" [checked]="giaovien.hienThi == true" #hthi (change)="Changed(i, $event)">
+                                <span class="switch-slider" data-checked="On" data-unchecked="Off"></span>
+                            </label>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-sm btn-danger active" data-toggle="modal" data-target="#modalDelete" name="delete-{{i}}" (click)="Value(i)"> <i class="fas fa-trash-alt"></i></button>
+                            &nbsp;
+                            <button type="button" class="btn btn-sm btn-primary active" data-toggle="modal" data-target="#modalUpdate" name="update-{{i}}" (click)="Value(i)"> <i class="fas fa-pencil-alt"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!--Modal Add-->
+<!-- The Modal -->
+<ngx-loading-bar [includeSpinner]='false'></ngx-loading-bar>
+<form [formGroup]="form">
+<div class="modal" id="modalAdd">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header alert-success">
+                <h4 class="modal-title">New Teacher Information</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form class="form-horizontal">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="username">User Name:</label>
+                                            <input class="form-control" type="text" name="username" id="username" placeholder="User Name"  [(ngModel)]="newteacher.code"  [formControl]="form.controls['code']">
+                                        </div>
+                                        <p *ngIf="form.controls['code'].hasError('required') && form.controls['code'].touched" class="text-danger" >Code is required</p>
+                                        <p *ngIf="checkTeacherCode==true" class="text-danger">{{errorms}}</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="username">Password:</label>
+                                            <input class="form-control" type="password" name="password" id="password" placeholder="Password" [(ngModel)]="newteacher.matKhau"  [formControl]="form.controls['matKhau']">
+                                        </div>
+                                        <p *ngIf="form.controls['matKhau'].hasError('required') && form.controls['matKhau'].touched" class="text-danger" >Password is required</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="firstname">First Name:</label>
+                                            <input class="form-control" type="text" name="firstname" id="firstname" placeholder="First Name" [(ngModel)]="newteacher.ho"  [formControl]="form.controls['ho']">
+                                        </div>
+                                        <p *ngIf="form.controls['ho'].hasError('required') && form.controls['ho'].touched" class="text-danger" >First Name is required</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="lastname">Last Name:</label>
+                                            <input class="form-control" type="text" name="lastname" id="lastname" placeholder="Last Name" [(ngModel)]="newteacher.ten"  [formControl]="form.controls['ten']">
+                                        </div>
+                                        <p *ngIf="form.controls['ten'].hasError('required') && form.controls['ten'].touched" class="text-danger" >Last Name is required</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="dob">DOB</label>
+                                            <input type="date" name="dob" id="dob" max="3000-12-31" min="1000-01-01" class="form-control" [(ngModel)]="newteacher.ngaySinh" [formControl]="form.controls['ngaySinh']">
+                                        </div>
+                                        <p *ngIf="form.controls['ngaySinh'].hasError('required') && form.controls['ngaySinh'].touched" class="text-danger" >Date of birth is required</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Gender</label>
+                                            <br>
+                                            <div class="form-check-inline" *ngFor="let gen of genders">
+                                                <label class="form-check-label" for="rad_{{gen}}">
+                                                    <input type="radio" class="form-check-input" id="rad_{{gen}}" name="optradio" [value]="gen" [(ngModel)]="newteacher.gioiTinh"  [formControl]="form.controls['gioiTinh']">
+                                                        <span *ngIf="gen=='0'"> Male </span>
+                                                        <span *ngIf="gen=='1'"> FeMale </span>
+                                                </label>
+                                            </div>
+                                            <p *ngIf="form.controls['gioiTinh'].hasError('required') && form.controls['gioiTinh'].touched" class="text-danger" >Gender is required</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="phone">Phone:</label>
+                                            <input class="form-control" type="text" name="phone" id="phone" placeholder="Phone" [(ngModel)]="newteacher.dienThoai"  [formControl]="form.controls['dienThoai']">
+                                        </div>
+                                        <p *ngIf="form.controls['dienThoai'].hasError('required') && form.controls['dienThoai'].touched" class="text-danger" >Phone is required</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="lastname">Email:</label>
+                                            <input class="form-control" type="email" name="email" id="email" placeholder="Email" [(ngModel)]="newteacher.email"  [formControl]="form.controls['email']">
+                                        </div>
+                                        <p *ngIf="form.controls['email'].hasError('required') && form.controls['email'].touched" class="text-danger" >Email is required</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="phone">Address:</label>
+                                            <input class="form-control" type="text" name="address" id="address" placeholder="Address" [(ngModel)]="newteacher.diaChi"  [formControl]="form.controls['diaChi']">
+                                        </div>
+                                        <p *ngIf="form.controls['diaChi'].hasError('required') && form.controls['diaChi'].touched" class="text-danger" >Address is required</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="authority">Authority:</label>
+                                            <br>
+                                            <a data-toggle="modal" href="#myModal">Add Authority</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal" [disabled]="!form.valid" (click)="Add()">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+</form>
+
+<!--Modal Update-->
+<!-- The Modal -->
+<ngx-loading-bar [includeSpinner]='false'></ngx-loading-bar>
+<form [formGroup]="form1">
+<div class="modal" id="modalUpdate">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header alert-primary">
+                <h4 class="modal-title">Update Teacher Information</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form class="form-horizontal">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="username">User Name:</label>
+                                            <input class="form-control" type="text" name="username" id="username1" placeholder="User Name" #teacherName1 value='{{ma}}'>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="username">Password:</label>
+                                            <input class="form-control" type="password" name="password" id="password1" placeholder="Password" #teacherPass1 value='{{matKhau}}'>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="firstname">First Name:</label>
+                                            <input class="form-control" type="text" name="firstname" id="firstname1" placeholder="First Name" #teacherFirstName1 value='{{ho}}'>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="lastname">Last Name:</label>
+                                            <input class="form-control" type="text" name="lastname" id="lastname1" placeholder="Last Name" #teacherLastName1 value='{{ten}}'>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="dob">DOB</label>
+                                            <input type="date" name="dob" id="dob1" max="3000-12-31" min="1000-01-01" class="form-control" #teacherDOB1 [value]="ngaysinh| date:'yyyy-MM-dd'">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Gender</label>
+                                            <br>
+                                            <div class="form-check-inline" *ngFor="let gen of genders">
+                                                <label class="form-check-label" for="rad1_{{gen}}">
+                                                    <input type="radio" class="form-check-input" id="rad1_{{gen}}" name="optradio" [checked]="gioitinh==gen? 'true' : 'false'" [value]="gen" [(ngModel)]="gender" (click)='radioFun()'>
+                                                        <span *ngIf="gen=='0'"> Male </span>
+                                                        <span *ngIf="gen=='1'"> FeMale </span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="phone">Phone:</label>
+                                            <input class="form-control" type="text" name="phone" id="phone1" placeholder="Phone" #teacherPhone1 value='{{dienThoai}}'>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="lastname">Email:</label>
+                                            <input class="form-control" type="email" name="email" id="email1" placeholder="Email" #teacherEmail1 value='{{email}}'>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="phone">Address:</label>
+                                            <input class="form-control" type="text" name="address" id="address1" placeholder="Address" #teacherAddress1 value='{{diaChi}}'>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="authority">Authority:</label>
+                                            <br>
+                                            <a data-toggle="modal" href="#myModal">Modify Authority</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="Update(teacherName1,teacherPass1,teacherFirstName1,teacherLastName1,teacherDOB1,teacherPhone1,teacherEmail1,teacherAddress1)">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+</form>
+
+<!--Modal Delete-->
+<!-- The Modal -->
+<div class="modal fade" id="modalDelete">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header alert-danger">
+                <h4 class="modal-title">Warning</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <p class="alert alert-danger">Are you sure? Information of this account will be deleted!!!</p>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form class="form-horizontal">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="username">User Name:</label>
+                                            <input class="form-control" type="text" name="username" id="username2" placeholder="User Name" disabled value='{{ma}}'>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="username">Password:</label>
+                                            <input class="form-control" type="password" name="password" id="password2" placeholder="Password" disabled value='{{matKhau}}'>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="firstname">First Name:</label>
+                                            <input class="form-control" type="text" name="firstname" id="firstname2" placeholder="First Name" disabled value='{{ho}}'>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="lastname">Last Name:</label>
+                                            <input class="form-control" type="text" name="lastname" id="lastname2" placeholder="Last Name" disabled value='{{ten}}'>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="dob">DOB</label>
+                                            <input type="date" name="dob" id="dob2" max="3000-12-31" min="1000-01-01" class="form-control" disabled [value]="ngaysinh| date:'yyyy-MM-dd'">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Gender</label>
+                                            <br>
+                                            <div class="form-check-inline" *ngFor="let gen of genders" >
+                                                <label class="form-check-label" for="rad2_{{gen}}">
+                                                    <input type="radio" class="form-check-input" id="rad2_{{gen}}" name="optradio" disabled [checked]="gioitinh==gen? 'true' : 'false'" [value]="gen" [(ngModel)]="gender" (click)='radioFun()'>
+                                                        <span *ngIf="gen=='0'"> Male </span>
+                                                        <span *ngIf="gen=='1'"> FeMale </span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="phone">Phone:</label>
+                                            <input class="form-control" type="text" name="phone" id="phone2" placeholder="Phone" disabled value='{{dienThoai}}'>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="lastname">Email:</label>
+                                            <input class="form-control" type="email" name="email" id="email2" placeholder="Email" disabled value='{{email}}'>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="phone">Address:</label>
+                                            <input class="form-control" type="text" name="address" id="address2" placeholder="Address" disabled value='{{diaChi}}'>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" (click)="Delete()">Yes</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+            </div>
+        </div>
+    </div>
+</div>
