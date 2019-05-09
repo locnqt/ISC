@@ -9,7 +9,7 @@ namespace TodoAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    [Authorize(Roles = "Admin, User")]
     public class ValuesController : ControllerBase
     {
         // GET api/values

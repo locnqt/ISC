@@ -13,6 +13,7 @@ namespace TodoAPI.Models
         [Key]
         [Column("USE_ID")]
         public long UserId { get; set; }
+        //[Required]
         [Column("UserName")]
         public string UserName { get; set; }
         [Column("PassWord")]

@@ -7,6 +7,8 @@ import { TodoComponent } from './pages/todo/todo.component';
 import { AppRoutes } from './app.routing';
 import { Routes, RouterModule, Router } from '@angular/router';
 import { CustomerComponent } from './pages/customer/customer.component';
+import { EnvServiceProvider } from './services/env.service.provider';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +20,7 @@ import { CustomerComponent } from './pages/customer/customer.component';
     HttpClientModule,
     RouterModule.forRoot(AppRoutes)
   ],
-  providers: [],
+  providers: [EnvServiceProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

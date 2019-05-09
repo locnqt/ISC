@@ -15,7 +15,7 @@ namespace TodoAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class UserController : ControllerBase
     {
         private readonly TodoContext _context;
@@ -31,14 +31,14 @@ namespace TodoAPI.Controllers
 
         // GET api/<controller>/5
         [HttpGet("{id}")]
-        public ActionResult<User> Get(int id)
+        public ActionResult<User> Get(long id)
         {
             var item = _context.Users.Find(id);
             if (item == null)
             {
                 return NoContent();
             }
-            return item;
+            return Ok(item);
         }
         // POST api/<controller>
         [AllowAnonymous]

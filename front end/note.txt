@@ -2,6 +2,7 @@
 -cần cài
  nodeJS
  visual code code/ sublime text
+ng update @angular/cli
 
 cmd tại thư mục
 ng new my-app

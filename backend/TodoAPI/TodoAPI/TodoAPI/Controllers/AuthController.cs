@@ -22,6 +22,7 @@ namespace TodoAPI.Controllers
     public class AuthController : ControllerBase
     {
         private readonly TodoContext _context;
+
         public AuthController(TodoContext context)
         {
             _context = context;
@@ -30,7 +31,7 @@ namespace TodoAPI.Controllers
                 User aUser = new User
                 {
                     UserName = "admin",
-                    PassWord = getHash("ahahah", "admin"),
+                    PassWord = getHash("admin", "admin"),
                     Name = "vanteo",
                     Email = "abc@gmail.com",
                     Islocked = false,
@@ -50,9 +51,17 @@ namespace TodoAPI.Controllers
             {
                 var user = _context.Users.Where(x => x.UserName == request.UserName && x.PassWord == getHash(request.PassWord, request.UserName)).SingleOrDefault();
 
+                var claimData = new List<Claim>();
                 if(user !=null)
                 {
-                    var claimData = new[] { new Claim(ClaimTypes.Name, request.UserName) };
+                    if (user.RolId == 1)
+                    {
+                        claimData.Add(new Claim(ClaimTypes.Role, "Admin"));
+                    }
+                    if (user.RolId == 2)
+                    {
+                        claimData.Add(new Claim(ClaimTypes.Role, "User"));
+                    }
                     var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("1234567890123456")); //at least 16 char
                     var signingCredentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256Signature);
                     var token = new JwtSecurityToken(

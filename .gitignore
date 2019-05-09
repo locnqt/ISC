@@ -1,0 +1,23 @@
+# -------------------------------------
+# ide ignores (idea | eclipse)
+# -------------------------------------
+
+**/*.iml
+*.classpath
+.idea
+.iml
+.project
+.settings
+.factorypath
+
+# -------------------------------------
+# java ignored
+# -------------------------------------
+
+*.class
+target
+/target/
+/bin/
+
+/node_modules
+

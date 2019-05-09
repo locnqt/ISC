@@ -26,3 +26,17 @@ D:\ISC\backend\TodoAPI\TodoAPI\TodoAPI\obj\Debug\netcoreapp2.1\TodoAPI.AssemblyI
 D:\ISC\backend\TodoAPI\TodoAPI\TodoAPI\obj\Debug\netcoreapp2.1\TodoAPI.RazorTargetAssemblyInfo.cache
 D:\ISC\backend\TodoAPI\TodoAPI\TodoAPI\obj\Debug\netcoreapp2.1\TodoAPI.dll
 D:\ISC\backend\TodoAPI\TodoAPI\TodoAPI\obj\Debug\netcoreapp2.1\TodoAPI.pdb
+D:\ISC\ThucTap\backend\TodoAPI\TodoAPI\TodoAPI\bin\Debug\netcoreapp2.1\TodoAPI.deps.json
+D:\ISC\ThucTap\backend\TodoAPI\TodoAPI\TodoAPI\bin\Debug\netcoreapp2.1\TodoAPI.runtimeconfig.json
+D:\ISC\ThucTap\backend\TodoAPI\TodoAPI\TodoAPI\bin\Debug\netcoreapp2.1\TodoAPI.runtimeconfig.dev.json
+D:\ISC\ThucTap\backend\TodoAPI\TodoAPI\TodoAPI\bin\Debug\netcoreapp2.1\TodoAPI.dll
+D:\ISC\ThucTap\backend\TodoAPI\TodoAPI\TodoAPI\bin\Debug\netcoreapp2.1\TodoAPI.pdb
+D:\ISC\ThucTap\backend\TodoAPI\TodoAPI\TodoAPI\obj\Debug\netcoreapp2.1\TodoAPI.csprojAssemblyReference.cache
+D:\ISC\ThucTap\backend\TodoAPI\TodoAPI\TodoAPI\obj\Debug\netcoreapp2.1\TodoAPI.csproj.CoreCompileInputs.cache
+D:\ISC\ThucTap\backend\TodoAPI\TodoAPI\TodoAPI\obj\Debug\netcoreapp2.1\TodoAPI.RazorAssemblyInfo.cache
+D:\ISC\ThucTap\backend\TodoAPI\TodoAPI\TodoAPI\obj\Debug\netcoreapp2.1\TodoAPI.RazorAssemblyInfo.cs
+D:\ISC\ThucTap\backend\TodoAPI\TodoAPI\TodoAPI\obj\Debug\netcoreapp2.1\TodoAPI.AssemblyInfoInputs.cache
+D:\ISC\ThucTap\backend\TodoAPI\TodoAPI\TodoAPI\obj\Debug\netcoreapp2.1\TodoAPI.AssemblyInfo.cs
+D:\ISC\ThucTap\backend\TodoAPI\TodoAPI\TodoAPI\obj\Debug\netcoreapp2.1\TodoAPI.RazorTargetAssemblyInfo.cache
+D:\ISC\ThucTap\backend\TodoAPI\TodoAPI\TodoAPI\obj\Debug\netcoreapp2.1\TodoAPI.dll
+D:\ISC\ThucTap\backend\TodoAPI\TodoAPI\TodoAPI\obj\Debug\netcoreapp2.1\TodoAPI.pdb

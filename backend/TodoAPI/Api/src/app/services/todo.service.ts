@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { ApiService } from './api.service';
+import { EnvService } from '../services/env.service';
 
 const apiName='todo';
 export interface Todo{
@@ -14,7 +15,11 @@ export interface Todo{
 })
 export class TodoService {
 
-  constructor(private apiservices: ApiService, private http: HttpClient ) { }
+  constructor(private env: EnvService, private apiservices: ApiService, private http: HttpClient ) {
+    if(env.enableDebug) {
+      console.log('Debug mode enabled!');
+    } 
+  }
   getAll(){
     return this.http.get(this.apiservices.baseUrl+apiName, {
       observe: 'body'

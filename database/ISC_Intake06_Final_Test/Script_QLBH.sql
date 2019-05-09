@@ -1,3 +1,7 @@
+create database QuanLy_BanHang
+go
+use QuanLy_BanHang
+go
 IF OBJECT_ID('CTHD', 'U') IS NOT NULL
   DROP TABLE CTHD;
 IF OBJECT_ID('HOADON', 'U') IS NOT NULL
